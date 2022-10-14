@@ -19,6 +19,11 @@ var app = new Vue({
       });
       $("#scan_history").prepend(`<li  class='list-group-item border border-secondary mt-2' >  ${content}</li>`);
 
+      //  if content is a url then redirect to that url in new tab
+      if (content.includes("http")) {
+        window.open(content, '_blank');
+      }
+
       $("#server_message").text('QR Code Scanned');
       $("#server_response").css('background-color', 'green');
       $("#server_response").show();
